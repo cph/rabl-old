@@ -238,7 +238,7 @@ module Rabl
       json_method = json_engine.respond_to?(:dump) ? 'dump' : 'encode'
       json_output = json_engine.send(json_method, json_output) unless json_output.is_a?(String)
       use_callback = Rabl.configuration.enable_json_callbacks && request_params[:callback].present?
-      use_callback ? "#{request_params[:callback]}(#{json_output})" : json_output
+      use_callback ? "/**/#{request_params[:callback]}(#{json_output})" : json_output
     end
 
     # Augments respond to supporting scope methods
